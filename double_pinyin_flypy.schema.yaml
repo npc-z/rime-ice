@@ -543,6 +543,16 @@ speller:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
+
+    # https://gist.github.com/lotem/2320943?permalink_comment_id=4472421#gistcomment-4472421
+    # 模糊音定義先於簡拼定義，方可令簡拼支持以上模糊音
+    # - derive/^([zcs])h/$1/ # zh, ch, sh => z, c, s
+    # - derive/^([zcs])([^h])/$1h$2/ # z, c, s => zh, ch, sh
+    - derive/([aei])ng$/$1n/ # ang =>an, eng => en, ing => in
+    - derive/([aei])n$/$1ng/ # an => ang, en => eng, in => ing
+    # - derive/^n/l/ # n => l
+    # - derive/^l/n/ # l => n
+
     - xform/^([aoe])(ng)?$/$1$1$2/
     - xform/iu$/Ⓠ/
     - xform/(.)ei$/$1Ⓦ/
